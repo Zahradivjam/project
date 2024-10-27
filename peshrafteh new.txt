@@ -1,0 +1,43 @@
+
+!class CustomStr(str):
+    def __init__(self , value):
+        super().__init__()
+        self.value=value
+        
+    def split_customstr(self , separator=" "):
+        return self.value.split("a")
+    
+    def remove_duplicate(self):
+        seen=set()
+        result=[]
+        for char in self.value:
+            if char not in seen:
+                seen.add(char)
+                result.append(char)
+                
+        return ''.join(result)
+    
+    def set_value(self , new_value):
+        self.value=new_value
+        
+    def isfloat(self):
+        try:
+            float(self.value)
+            return True
+        except ValueError:
+            return False
+        
+    def ispalindrom(self):
+        return self.value == self.value[::-1]
+    
+    
+    
+    
+    
+text=CustomStr('zahra')
+print(text.split_customstr())
+print(text.remove_duplicate())
+text.set_value('56.98')
+print(text.isfloat())
+print(text.ispalindrom())
+        
